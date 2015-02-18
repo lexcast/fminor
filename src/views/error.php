@@ -1,1 +1,6 @@
-<h1>There was an error <?php echo $exception->getMessage(); ?></h1>
+<?php $view->extend('base.php') ?>
+
+<?php $view['slots']->set('title', $exception->getMessage()) ?>
+
+<h1>Ooops, error <?php echo $exception->getStstusCode(); ?></h1>
+<h2><?php echo $exception->getMessage(); ?></h2>
