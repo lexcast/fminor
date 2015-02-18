@@ -1,0 +1,34 @@
+{
+	"name" : "GeeklyDH/Fminor",
+	"type" : "project",
+	"description" : "Base for simple webpages",
+	"autoload" : {
+		"psr-0" : {
+			"App" : "src/"
+		}
+	},
+	"require" : {
+		"php" : ">=5.3.3",
+		"symfony/event-dispatcher": "~2.6",
+		"symfony/http-foundation": "~2.6",
+		"symfony/http-kernel": "~2.6",
+		"symfony/routing": "~2.6",
+		"symfony/templating": "~2.6"
+	},
+	"authors" : [{
+			"name" : "Daniel Alejandro Cast",
+			"email" : "lexcast13@gmail.com",
+			"role" : "Developer"
+		}, 
+		{
+			"name" : "Martin Urias Silva",
+			"email" : "nitram92bcs@gmail.com",
+			"role" : "Developer"
+		},
+		{
+			"name" : "Daniel Gonzalez",
+			"role" : "Developer"
+		}
+	],
+	"license" : "proprietary"
+}

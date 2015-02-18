@@ -1,0 +1,13 @@
+#Symfony
+/build/
+/vendor/
+/composer.phar
+
+#Eclipse
+.buildpath
+.project
+.settings/
+.metadata
+
+#Temp
+*~
