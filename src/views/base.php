@@ -5,7 +5,7 @@
 	<title><?php $view['slots']->output('title', 'Welcome!') ?></title>
 	<?php $view['slots']->output('stylesheets') ?>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </head>
 <body>
 	<?php $view['slots']->output('_content') ?>
