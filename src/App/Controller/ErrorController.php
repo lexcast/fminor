@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpKernel\Exception\FlattenException;
-use App\Controller\BaseController;
+use Fminor\Core\Controller\BaseController;
 
 class ErrorController extends BaseController
 {
