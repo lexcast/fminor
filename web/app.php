@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 
-$routes = require_once __DIR__.'/../src/routes.php';
+$routes = require_once __DIR__.'/../src/Config/routes.php';
 
 $request = Request::createFromGlobals();
 
