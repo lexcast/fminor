@@ -1,0 +1,10 @@
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+use Fminor\Core\Command\BuildCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+$application->add(new BuildCommand());
+$application->run();
