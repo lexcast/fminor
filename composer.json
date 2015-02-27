@@ -1,34 +1,38 @@
 {
-	"name" : "GeeklyDH/Fminor",
+	"name" : "lexcast/fminor",
 	"type" : "project",
-	"description" : "Base for simple webpages",
+	"description" : "Miniframework to build simple webpages with a single command",
+	"version" : "0.2-dev",
 	"autoload" : {
-		"psr-0" : {
-			"App" : "src/"
+		"psr-4" : {
+			"App\\" : "src/App/",
+			"Fminor\\Controller\\" : "framework/Fminor/Controller/"
+		}
+	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"Fminor\\" : "framework/Fminor/"
 		}
 	},
 	"require" : {
 		"php" : ">=5.3.3",
-		"symfony/event-dispatcher": "~2.6",
-		"symfony/http-foundation": "~2.6",
-		"symfony/http-kernel": "~2.6",
-		"symfony/routing": "~2.6",
-		"symfony/templating": "~2.6"
+		"symfony/event-dispatcher" : "~2.6",
+		"symfony/http-foundation" : "~2.6",
+		"symfony/http-kernel" : "~2.6",
+		"symfony/routing" : "~2.6",
+		"symfony/templating" : "~2.6"
+	},
+	"require-dev" : {
+		"symfony/console" : "~2.6",
+		"symfony/config" : "~2.6",
+		"symfony/yaml" : "~2.6",
+		"twig/twig": "~1.11"
 	},
 	"authors" : [{
 			"name" : "Daniel Alejandro Cast",
 			"email" : "lexcast13@gmail.com",
-			"role" : "Developer"
-		}, 
-		{
-			"name" : "Martin Urias Silva",
-			"email" : "nitram92bcs@gmail.com",
-			"role" : "Developer"
-		},
-		{
-			"name" : "Daniel Gonzalez",
-			"role" : "Developer"
+			"role" : "Creator"
 		}
 	],
-	"license" : "proprietary"
+	"license" : "MIT"
 }
