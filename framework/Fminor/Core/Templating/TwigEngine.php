@@ -1,0 +1,27 @@
+<?php
+namespace Fminor\Core\Templating;
+
+use Symfony\Component\Templating\TemplateNameParser;
+
+class TwigEngine
+{
+	/**
+	 *
+	 * @var \Twig_Environment
+	 */
+	private $templating;
+	function __construct($dir)
+	{
+		$loader = new \Twig_Loader_Filesystem($dir.'/../Resources/views/');
+		$this->templating = new \Twig_Environment($loader, array(
+			'debug' => true,
+			'cache' => false,
+			'strict_variables' => true,
+			'autoescape' => false,
+		));
+	}
+	public function render($filename, $parameters)
+	{
+		return $this->templating->render($filename, $parameters);
+	}
+}
