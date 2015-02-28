@@ -2,7 +2,6 @@
 namespace Fminor\Core\Command;
 
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -38,63 +37,63 @@ EOT
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-    	$bar = $this->getProgressBar($output);
-    	$bar->setMessage('processing configuration...');
-    	$bar->start();
-    	$chordsYml = Yaml::parse(file_get_contents(__DIR__.'/../../../../chords.yml'));
-		if($chordsYml === false || !is_array($chordsYml)) {
-			$bar->clear();
-			$output->writeln('<error>There was an error while trying to open chords.yml file</error>');
-			return;
-		}
-		$repertoires = require_once __DIR__.'/../../../../src/Config/repertoires.php';
-		$parManager = new ParametersManager($chordsYml, $repertoires);
+        $bar = $this->getProgressBar($output);
+        $bar->setMessage('processing configuration...');
+        $bar->start();
+        $chordsYml = Yaml::parse(file_get_contents(__DIR__.'/../../../../chords.yml'));
+        if ($chordsYml === false || !is_array($chordsYml)) {
+            $bar->clear();
+            $output->writeln('<error>There was an error while trying to open chords.yml file</error>');
 
-		$bar->advance();
+            return;
+        }
+        $repertoires = require_once __DIR__.'/../../../../src/Config/repertoires.php';
+        $parManager = new ParametersManager($chordsYml, $repertoires);
 
+        $bar->advance();
 
         $force = $input->getOption('force');
-        if($force === false) {
-        	$output->writeln('<comment>this command will delete all configuration, resources, controller and model files on src/ folder</comment>');
+        if ($force === false) {
+            $output->writeln('<comment>this command will delete all configuration, resources, controller and model files on src/ folder</comment>');
 
-        	$helper = $this->getHelper('question');
-        	$question = new ConfirmationQuestion('Do you want to continue with this action?[N/y]', false);
+            $helper = $this->getHelper('question');
+            $question = new ConfirmationQuestion('Do you want to continue with this action?[N/y]', false);
 
-	        if (!$helper->ask($input, $output, $question)) {
-	    		return;
-			}
+            if (!$helper->ask($input, $output, $question)) {
+                return;
+            }
         }
         $requests = array();
         foreach ($repertoires as $repertoire) {
-        	foreach ($repertoire->getChords() as $chord) {
-        		$requests = array_merge($requests, $chord->generateRequests($parManager));
-        	}
+            foreach ($repertoire->getChords() as $chord) {
+                $requests = array_merge($requests, $chord->generateRequests($parManager));
+            }
         }
         $this->generate($repertoires, $requests, $parManager);
-		$bar->finish();
+        $bar->finish();
     }
     /**
-     *
      * @param OutputInterface $output
+     *
      * @return \Symfony\Component\Console\Helper\ProgressBar
      */
     private function getProgressBar(OutputInterface $output)
     {
-    	$bar = new ProgressBar($output);
-    	$bar->setFormat(' %current%/%max% [%bar%] %percent:3s%% %memory:6s%');
-    	$bar->setBarCharacter('<comment>=</comment>');
-    	$bar->setEmptyBarCharacter(' ');
-    	$bar->setProgressCharacter('|');
-    	$bar->setBarWidth(50);
+        $bar = new ProgressBar($output);
+        $bar->setFormat(' %current%/%max% [%bar%] %percent:3s%% %memory:6s%');
+        $bar->setBarCharacter('<comment>=</comment>');
+        $bar->setEmptyBarCharacter(' ');
+        $bar->setProgressCharacter('|');
+        $bar->setBarWidth(50);
 
-    	return $bar;
+        return $bar;
     }
     private function generate(array $repertoires, array $requests, ParametersManager $parManager)
     {
-      foreach ($repertoires as $repertoire) {
-        foreach ($repertoire->getGenerators() as $generator) {
-          $generator->generate($requests, $parManager);
+        foreach ($repertoires as $repertoire) {
+            foreach ($repertoire->getGenerators() as $generator) {
+                $generator->generate($requests, $parManager);
+            }
         }
-      }
     }
 }

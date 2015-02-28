@@ -6,11 +6,10 @@ use Fminor\Core\Config\ParametersManager;
 
 class RoutingGenerator extends GeneratorAbstract
 {
-
-	/* (non-PHPdoc)
-	 * @see \Fminor\Core\Generator\GeneratorAbstract::generate()
-	 */
-	public function generate(array $requests, ParametersManager $parManager) {
-
-	}
+    /* (non-PHPdoc)
+     * @see \Fminor\Core\Generator\GeneratorAbstract::generate()
+     */
+    public function generate(array $requests, ParametersManager $parManager)
+    {
+    }
 }

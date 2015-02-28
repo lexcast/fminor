@@ -5,5 +5,4 @@ use Fminor\Core\Request\RequestInterface;
 
 class AssetRequest implements RequestInterface
 {
-
 }

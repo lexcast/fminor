@@ -4,7 +4,7 @@ use Symfony\Component\Routing\Route;
 
 $routes = new RouteCollection();
 $routes->add('hello', new Route('/hello/{name}', array(
-        '_controller' => 'App\\Controller\\DefaultController::indexAction'
+        '_controller' => 'App\\Controller\\DefaultController::indexAction',
     )
 ));
 
