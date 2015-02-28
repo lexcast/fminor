@@ -2,10 +2,9 @@
 namespace Fminor\Repertoire\Chord;
 
 use Fminor\Core\Chord\ChordAbstract;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
-use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Fminor\Repertoire\Request\TemplateRequest;
 use Fminor\Core\Templating\TwigEngine;
+use Fminor\Core\Config\ParametersManager;
 
 class SectionChord extends ChordAbstract
 {
@@ -22,12 +21,12 @@ class SectionChord extends ChordAbstract
 	/* (non-PHPdoc)
 	 * @see \Fminor\Core\Chord\ChordInterface::generateWriteRequests()
 	 */
-	public function generateRequests(array $parameters)
+	public function generateRequests(ParametersManager $parManager)
 	{
-		$sections = $parameters['fminor']['section'];
+		$sections = $parManager->getChordParameters('fminor', 'section');
 		$twig = new TwigEngine(__DIR__);
 		$requests = array();
-		for($i=0; $i<count($sections)-1;$i++) {
+		for($i=0; $i<count($sections);$i++) {
 			$section = $sections[$i];
 			$request = new TemplateRequest();
 			$request->setFilename($section);

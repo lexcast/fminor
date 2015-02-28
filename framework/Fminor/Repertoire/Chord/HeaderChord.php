@@ -2,12 +2,11 @@
 namespace Fminor\Repertoire\Chord;
 
 use Fminor\Core\Chord\ChordAbstract;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
-use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
+use Fminor\Core\Config\ParametersManager;
 
 class HeaderChord extends ChordAbstract
 {
-	
+
 	/* (non-PHPdoc)
 	 * @see \Fminor\Core\Chord\ChordInterface::getConfigNode()
 	 */
@@ -20,14 +19,14 @@ class HeaderChord extends ChordAbstract
 	/* (non-PHPdoc)
 	 * @see \Fminor\Core\Chord\ChordInterface::generateWriteRequests()
 	 */
-	public function generateRequests(array $parameters) { }
+	public function generateRequests(ParametersManager $parManager) { }
 	/* (non-PHPdoc)
 	 * @see \Fminor\Core\Chord\ChordInterface::getName()
 	 */
 	public function getName() {
 		return 'header';
 	}
-	
+
 	/* (non-PHPdoc)
 	 * @see \Fminor\Core\Chord\ChordAbstract::getSupportedFeatures()
 	 */

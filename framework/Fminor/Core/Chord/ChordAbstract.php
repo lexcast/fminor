@@ -1,26 +1,26 @@
 <?php
 namespace Fminor\Core\Chord;
 
-use Symfony\Component\Config\Definition\NodeInterface;
-use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+use Fminor\Core\Config\ParametersManager;
+
 abstract class ChordAbstract
 {
 	/**
 	 * Returns the configuration node of the chord
-	 * 
-	 * @return NodeInterface chord's configuration
+	 *
+	 * @return ArrayNodeDefinition|NodeDefinition chord's configuration
 	 */
 	abstract function getConfigNode();
 	/**
 	 * Will process the parameters and returns all write requests needed
-	 * 
+	 *
 	 * @return array write requests
 	 */
-	abstract function generateRequests(array $parameters);
+	abstract function generateRequests(ParametersManager $parManager);
 	/**
 	 * Return the chord's name
-	 * 
+	 *
 	 * @return string chord's name
 	 */
 	abstract function getName();
@@ -29,8 +29,8 @@ abstract class ChordAbstract
 	 */
 	abstract function getSupportedFeatures();
 	/**
-	 * 
-	 * @return \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition|\Symfony\Component\Config\Definition\Builder\NodeDefinition
+	 *
+	 * @return ArrayNodeDefinition|NodeDefinition
 	 */
 	protected function getChordNode()
 	{
