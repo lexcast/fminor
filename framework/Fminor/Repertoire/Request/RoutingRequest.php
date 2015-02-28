@@ -1,9 +1,9 @@
 <?php
 namespace Fminor\Repertoire\Request;
 
-use Fminor\Core\Request\RequestInterface;
+use Fminor\Core\Request\RequestAbstract;
 
-class RoutingRequest implements RequestInterface
+class RoutingRequest extends RequestAbstract
 {
     private $path;
     private $methods;

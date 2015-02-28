@@ -1,9 +1,9 @@
 <?php
 namespace Fminor\Repertoire\Request;
 
-use Fminor\Core\Request\RequestInterface;
+use Fminor\Core\Request\RequestAbstract;
 
-class TemplateRequest implements RequestInterface
+class TemplateRequest extends RequestAbstract
 {
     private $content;
     private $path;

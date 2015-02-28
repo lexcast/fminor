@@ -12,14 +12,12 @@ class TemplatingGenerator extends GeneratorAbstract
      */
     public function generate(array $requests, ParametersManager $parManager)
     {
-        foreach ($requests as $request) {
-            if ($request instanceof TemplateRequest) {
-                $this->create(
-                        'src/Resources/views/'.$request->getPath(),
-                        $request->getFilename().'.php',
-                        $request->getContent()
-                );
-            }
+        foreach (TemplateRequest::filter($requests) as $request) {
+            $this->create(
+                    'src/Resources/views/'.$request->getPath(),
+                    $request->getFilename().'.php',
+                    $request->getContent()
+            );
         }
     }
 }

@@ -1,9 +1,9 @@
 <?php
 namespace Fminor\Repertoire\Request;
 
-use Fminor\Core\Request\RequestInterface;
+use Fminor\Core\Request\RequestAbstract;
 
-class ControllerRequest implements RequestInterface
+class ControllerRequest extends RequestAbstract
 {
     private $controllerName;
     private $actionName;
