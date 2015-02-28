@@ -17,10 +17,4 @@ abstract class GeneratorAbstract
         }
         file_put_contents($path.$filename, $content);
     }
-    protected function filterBy($requests, $type)
-    {
-        return array_filter($requests, function ($request) {
-            return ($request instanceof $type);
-        });
-    }
 }
