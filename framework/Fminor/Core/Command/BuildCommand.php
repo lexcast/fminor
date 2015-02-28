@@ -9,12 +9,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Yaml\Yaml;
-use Symfony\Component\Config\Definition\Processor;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
-use Fminor\Core\Config\ChordsConfiguration;
-use Fminor\Core\Generator\RoutingGenerator;
-use Fminor\Core\Generator\TemplatingGenerator;
-use Fminor\Core\Generator\ControllerGenerator;
+use Fminor\Core\Config\ParametersManager;
 
 class BuildCommand extends Command
 {
@@ -53,21 +48,7 @@ EOT
 			return;
 		}
 		$repertoires = require_once __DIR__.'/../../../../src/Config/repertoires.php';
-		$configuration = new ChordsConfiguration();
-		$configuration->setRepertoires($repertoires);
-		$processor = new Processor();
-		$processedConfiguration = $processor->processConfiguration(
-				$configuration,
-				array($chordsYml)
-		);
-
-		foreach ($repertoires as $repertoire) {
-			foreach ($repertoire->getChords() as $chord) {
-				if (isset($processedConfiguration[$repertoire->getName()][$chord->getName()]))
-					$processedConfiguration[$repertoire->getName()][$chord->getName()]['properties']=
-						$chord->getSupportedFeatures();
-			}
-		}
+		$parManager = new ParametersManager($chordsYml, $repertoires);
 
 		$bar->advance();
 
@@ -86,10 +67,10 @@ EOT
         $requests = array();
         foreach ($repertoires as $repertoire) {
         	foreach ($repertoire->getChords() as $chord) {
-        		$requests = array_merge($requests, $chord->generateRequests($processedConfiguration));
+        		$requests = array_merge($requests, $chord->generateRequests($parManager));
         	}
         }
-        $this->generate($repertoires, $requests, $processedConfiguration);
+        $this->generate($repertoires, $requests, $parManager);
 		$bar->finish();
     }
     /**
@@ -108,11 +89,11 @@ EOT
 
     	return $bar;
     }
-    private function generate(array $repertoires, array $requests, array $parameters)
+    private function generate(array $repertoires, array $requests, ParametersManager $parManager)
     {
       foreach ($repertoires as $repertoire) {
         foreach ($repertoire->getGenerators() as $generator) {
-          $generator->generate($requests, $parameters);
+          $generator->generate($requests, $parManager);
         }
       }
     }
