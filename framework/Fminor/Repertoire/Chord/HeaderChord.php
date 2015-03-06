@@ -25,7 +25,7 @@ class HeaderChord extends ChordAbstract
     public function generateRequests(ParametersManager $parManager)
     {
       $headers = $parManager->getChordParameters('fminor','header');
-      $twig = new TwigEngine(_DIR_);
+      $twig = new TwigEngine(__DIR__);
       $requests = array();
       for ($i = 0; $i<count($headers);$i++) {
           $header = $headers[$i];
