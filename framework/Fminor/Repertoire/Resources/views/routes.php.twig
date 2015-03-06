@@ -1,0 +1,13 @@
+<?php
+use Symfony\Component\Routing\RouteCollection;
+use Symfony\Component\Routing\Route;
+
+$routes = new RouteCollection();
+{% for route in routes %}
+    $routes->add('{{ route.id }}', new Route('{{ route.path }}', array(
+            '_controller' => 'App\\Controller\\{{ route.controller }}Controller::{{ route.action }}Action',
+        )
+    ));
+{% endfor %}
+
+return $routes;

@@ -1,0 +1,15 @@
+<?php
+namespace App\Controller;
+
+use Symfony\Component\HttpFoundation\Request;
+use Fminor\Core\Controller\BaseController;
+
+class {{ controller.name }}Controller extends BaseController
+{
+    {% for action in controller.actions %}
+        public function {{ action.name }}Action(Request $request)
+        {
+            {{ action.code }}
+        }
+    {% endfor %}
+}

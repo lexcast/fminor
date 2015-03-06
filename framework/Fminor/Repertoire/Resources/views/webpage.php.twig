@@ -1,0 +1,7 @@
+<?php $view->extend('base.php') ?>
+
+<?php $view['slots']->set('title', '{{ name }}') ?>
+
+{% for part in parts %}
+    @{{part}}@
+{% endfor %}
