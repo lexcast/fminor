@@ -11,7 +11,7 @@ abstract class BaseController
 {
     protected function render($name, array $args = array(), $status = '200')
     {
-        $loader = new FilesystemLoader(__DIR__.'/../../../src/Resources/views/%name%');
+        $loader = new FilesystemLoader(__DIR__.'/../../../../src/Resources/views/%name%');
 
         $templating = new PhpEngine(new TemplateNameParser(), $loader);
         $templating->set(new SlotsHelper());
