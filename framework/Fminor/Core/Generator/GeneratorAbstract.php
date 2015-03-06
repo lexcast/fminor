@@ -17,4 +17,11 @@ abstract class GeneratorAbstract
         }
         file_put_contents($path.$filename, $content);
     }
+    protected function getRequestById(array $requests, $id)
+    {
+        foreach ($requests as $request) {
+            if ($request->getId() === $id)
+                return $request;
+        }
+    }
 }
