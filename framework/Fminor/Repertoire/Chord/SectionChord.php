@@ -30,8 +30,8 @@ class SectionChord extends ChordAbstract
         for ($i = 0; $i<count($sections);$i++) {
             $section = $sections[$i];
             $request = new TemplateRequest();
-            $request->setFilename($section);
-            $request->setPath('fminor/section');
+            $request->setId('fminor.section.'.$section);
+            $request->setType(TemplateRequest::INLINE);
             $request->setContent($twig->render('section.php.twig', array('name' => $section)));
             $requests[] = $request;
         }
