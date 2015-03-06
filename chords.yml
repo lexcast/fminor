@@ -1,4 +1,5 @@
-
+project_name: fminor
+prefer_cdn: true
 fminor:
     webpage:
         index:
