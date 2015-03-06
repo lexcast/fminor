@@ -12,6 +12,7 @@ class FminorRepertoire implements RepertoireInterface
     {
         return array(
                 new Chord\SectionChord(),
+                new Chord\WebpageChord()
         );
     }
     /* (non-PHPdoc)
@@ -28,6 +29,8 @@ class FminorRepertoire implements RepertoireInterface
     {
         return array(
                 new Generator\TemplatingGenerator(),
+                new Generator\ControllerGenerator(),
+                new Generator\RoutingGenerator()
         );
     }
     /* (non-PHPdoc)
