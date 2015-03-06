@@ -53,6 +53,12 @@ class ParametersManager
 
         return ($features !== null && in_array($feature, $features));
     }
+    public function hasFeatureById($id, $feature)
+    {
+        list($repertoire, $chord, $name) = split('[.]', $id);
+
+        return $this->hasFeature($repertoire, $chord, $feature);
+    }
     public function getParameters()
     {
         return $this->parameters;
