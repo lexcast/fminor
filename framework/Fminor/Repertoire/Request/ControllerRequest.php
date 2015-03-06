@@ -5,26 +5,26 @@ use Fminor\Core\Request\RequestAbstract;
 
 class ControllerRequest extends RequestAbstract
 {
-    private $controllerName;
-    private $actionName;
+    private $controller;
+    private $action;
     private $code;
-    public function getControllerName()
+    public function getController()
     {
-        return $this->controllerName;
+        return $this->controller;
     }
-    public function setControllerName($controllerName)
+    public function setController($controller)
     {
-        $this->controllerName = $controllerName;
+        $this->controller = $controller;
 
         return $this;
     }
-    public function getActionName()
+    public function getAction()
     {
-        return $this->actionName;
+        return $this->action;
     }
-    public function setActionName($actionName)
+    public function setAction($action)
     {
-        $this->actionName = $actionName;
+        $this->action = $action;
 
         return $this;
     }

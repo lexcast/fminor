@@ -5,9 +5,12 @@ use Fminor\Core\Request\RequestAbstract;
 
 class TemplateRequest extends RequestAbstract
 {
+    const INLINE =  'inline';
+    const INCLUDED = 'included';
+    //this will be added
+    //const CONTROLLER = 'controller';
     private $content;
-    private $path;
-    private $filename;
+    private $type;
     public function getContent()
     {
         return $this->content;
@@ -18,23 +21,18 @@ class TemplateRequest extends RequestAbstract
 
         return $this;
     }
-    public function getPath()
+    public function getType()
     {
-        return $this->path;
+        return $this->type;
     }
-    public function setPath($path)
+    public function setType($type)
     {
-        $this->path = $path;
-
-        return $this;
-    }
-    public function getFilename()
-    {
-        return $this->filename;
-    }
-    public function setFilename($filename)
-    {
-        $this->filename = $filename;
+        if($type !== self::INLINE && $type !== self::INCLUDED) {
+            throw new \InvalidArgumentException(
+                'type should be '.self::INLINE.' or '.self::INCLUDED
+            );
+        }
+        $this->type = $type;
 
         return $this;
     }

@@ -7,6 +7,8 @@ class RoutingRequest extends RequestAbstract
 {
     private $path;
     private $methods;
+    private $controller;
+    private $action;
     public function getPath()
     {
         return $this->path;
@@ -24,6 +26,26 @@ class RoutingRequest extends RequestAbstract
     public function setMethods(array $methods)
     {
         $this->methods = $methods;
+
+        return $this;
+    }
+    public function getController()
+    {
+        return $this->controller;
+    }
+    public function setController($controller)
+    {
+        $this->controller = $controller;
+
+        return $this;
+    }
+    public function getAction()
+    {
+        return $this->action;
+    }
+    public function setAction($action)
+    {
+        $this->action = $action;
 
         return $this;
     }
