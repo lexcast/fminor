@@ -1,3 +1,9 @@
 
 fminor:
-  section: [main, about]
+    webpage:
+        index:
+            path: "/"
+            parts:
+                - fminor.section.main
+                - fminor.section.about
+    section: [main, about]
