@@ -2,9 +2,28 @@ project_name: fminor
 prefer_cdn: true
 fminor:
     webpage:
-        index:
+        home:
             path: "/"
             parts:
-                - fminor.section.main
-                - fminor.section.about
-    section: [main, about]
+                - fminor.header.main
+                - fminor.section.services
+                - fminor.section.products
+                - fminor.footer.main
+        about:
+            path: "/about"
+            parts:
+                - fminor.header.main
+                - fminor.section.company
+                - fminor.section.history
+                - fminor.footer.main
+    section:
+        services:
+        products:
+        company:
+        history:
+    header:
+        main:
+            inline: false
+    footer:
+        main:
+            inline: false
