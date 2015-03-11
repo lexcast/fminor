@@ -5,6 +5,7 @@ fminor:
         home:
             path: "/"
             parts:
+                - fminor.menu.main
                 - fminor.header.main
                 - fminor.section.services
                 - fminor.section.products
@@ -12,6 +13,7 @@ fminor:
         about:
             path: "/about"
             parts:
+                - fminor.menu.about
                 - fminor.header.main
                 - fminor.section.company
                 - fminor.section.history
@@ -27,3 +29,36 @@ fminor:
     footer:
         main:
             inline: false
+    menu:
+        main:
+            brand: text
+            inline : true
+            parts:
+                home:
+                    type: links
+                    position: right
+                    parts:
+                        home:
+                            type: link
+                            part: fminor.webpage.home
+                        about:
+                            type: link
+                            part: fminor.webpage.about
+        about:
+            brand: image
+            inline: true
+            parts:
+                main:
+                    type: links
+                    position: left
+                    parts:
+                        home:
+                            type: link
+                            part: fminor.webpage.home
+                        about:
+                            type: dropdown
+                            parts:
+                                company:
+                                    part: fminor.section.company
+                                history:
+                                    part: fminor.section.history
