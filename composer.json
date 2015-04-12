@@ -1,17 +1,12 @@
 {
 	"name" : "lexcast/fminor",
 	"type" : "project",
-	"description" : "Miniframework to build simple webpages with a single command",
-	"version" : "0.2-dev",
+	"description" : "Skeleton miniproject to build simple webpages with a single command",
+	"version" : "1.0-dev",
+	"license" : "MIT",
 	"autoload" : {
 		"psr-4" : {
-			"App\\" : "src/App/",
-			"Fminor\\Controller\\" : "framework/Fminor/Controller/"
-		}
-	},
-	"autoload-dev" : {
-		"psr-4" : {
-			"Fminor\\" : "framework/Fminor/"
+			"App\\" : "src/App/"
 		}
 	},
 	"require" : {
@@ -24,15 +19,13 @@
 	},
 	"require-dev" : {
 		"symfony/console" : "~2.6",
-		"symfony/config" : "~2.6",
-		"symfony/yaml" : "~2.6",
-		"twig/twig": "~1.11"
+		"lexcast/fminor-core" : "1.0-dev",
+		"lexcast/fminor-repertoire" : "1.0-dev",
 	},
 	"authors" : [{
 			"name" : "Daniel Alejandro Cast",
 			"email" : "lexcast13@gmail.com",
 			"role" : "Creator"
 		}
-	],
-	"license" : "MIT"
+	]
 }
