@@ -19,7 +19,7 @@
 	"require-dev" : {
 		"symfony/console" : "~2.6",
 		"lexcast/fminor-core" : "dev-master",
-		"lexcast/fminor-repertoire" : "dev-master",
+		"lexcast/fminor-repertoire" : "dev-master"
 	},
 	"authors" : [{
 			"name" : "Daniel Alejandro Cast",
