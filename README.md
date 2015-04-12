@@ -4,7 +4,7 @@ Generate a simple web page with a single command.
 ##Set up
 To set up a new project based on Fminor you just need composer and run:
 ```
-$ composer create-project lexcast/fminor 1.0-dev
+$ composer create-project lexcast/fminor dev-master
 ```
 and that's it, now you have a very basic structure to start your project.
 
