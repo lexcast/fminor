@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Fminor\Core\Controller\BaseController;
+use App\Controller\BaseController;
 
 class DefaultController extends BaseController
 {
