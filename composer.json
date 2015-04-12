@@ -2,7 +2,6 @@
 	"name" : "lexcast/fminor",
 	"type" : "project",
 	"description" : "Skeleton miniproject to build simple webpages with a single command",
-	"version" : "1.0-dev",
 	"license" : "MIT",
 	"autoload" : {
 		"psr-4" : {
@@ -19,8 +18,8 @@
 	},
 	"require-dev" : {
 		"symfony/console" : "~2.6",
-		"lexcast/fminor-core" : "1.0-dev",
-		"lexcast/fminor-repertoire" : "1.0-dev",
+		"lexcast/fminor-core" : "dev-master",
+		"lexcast/fminor-repertoire" : "dev-master",
 	},
 	"authors" : [{
 			"name" : "Daniel Alejandro Cast",
