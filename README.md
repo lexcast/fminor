@@ -33,8 +33,8 @@ and this command will generate all templates, routes and controllers needed.
 This command just get two files. The `chords.yml` has all the information about what do you want (menus, pages, etc.) and validates it. Then in `src/Config/repertoires.php` look for all repertoires (plugins) you have, and inside of these look for Chords (are like parts or fragments, i.e. menu, section) and Generators (to generate controllers, routes, views, etc.). Finally will send requests to all registered generators whom will generate the code needed.
 
 ##About this project
-This was developed just to learn more about the Symfony components and for now there is only one repertoire available with just a few basic fragments. Check it: lexcast/fminor-repertoire
+This was developed just to learn more about the Symfony components and for now there is only one repertoire available with just a few basic fragments. Check it: [lexcast/fminor-repertoire](github.com/lexcast/fminor-repertoire).
 
 If you want to collaborate with more fragments, feel free to do it. The idea is to generate simple web pages easily.
 
-The author of this project is Daniel Alejandro Cast (@lexcast).
+The author of this project is Daniel Alejandro Cast ([@lexcast](github.com/lexcast)).
